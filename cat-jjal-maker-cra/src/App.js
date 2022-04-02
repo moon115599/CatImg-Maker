@@ -1,3 +1,8 @@
+import logo from "./logo.svg";
+import React from "react";
+import "./App.css";
+import Title from "./components/Title";
+
 const jsonLocalStorage = {
   setItem: (key, value) => {
     localStorage.setItem(key, JSON.stringify(value));
@@ -12,10 +17,6 @@ const fetchCat = async (text) => {
   const response = await fetch(`${OPEN_API_DOMAIN}/cat/says/${text}?json=true`);
   const responseJson = await response.json();
   return `${OPEN_API_DOMAIN}/${responseJson.url}`;
-};
-
-const Title = ({ children }) => {
-  return <h1>{children}</h1>;
 };
 
 const Form = ({ updateMainCat }) => {
@@ -151,6 +152,4 @@ const App = () => {
   );
 };
 
-const 여기다가그려 = document.querySelector(".app");
-
-ReactDOM.render(<App />, 여기다가그려);
+export default App;
