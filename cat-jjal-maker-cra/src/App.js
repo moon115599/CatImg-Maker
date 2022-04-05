@@ -39,13 +39,14 @@ const Form = ({ updateMainCat }) => {
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    setErrorMessage("");
+
     if (value === "") {
       setErrorMessage("빈 값으로 만들 수 없습니다.");
       return;
     } else if (includesHangul(value)) {
       return;
     }
+    setValue("");
     updateMainCat(value);
   }
 
