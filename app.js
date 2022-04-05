@@ -28,8 +28,6 @@ const Form = ({ updateMainCat }) => {
     setErrorMessage("");
     if (includesHangul(userValue)) {
       setErrorMessage("한글은 입력할 수 없습니다.");
-    } else {
-      setErrorMessage("");
     }
     setValue(userValue.toUpperCase());
   }
@@ -39,6 +37,8 @@ const Form = ({ updateMainCat }) => {
     setErrorMessage("");
     if (value === "") {
       setErrorMessage("빈 값으로 만들 수 없습니다.");
+      return;
+    } else if (includesHangul(value)) {
       return;
     }
     updateMainCat(value);
