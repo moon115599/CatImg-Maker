@@ -19,10 +19,6 @@ const fetchCat = async (text) => {
   return `${OPEN_API_DOMAIN}/${responseJson.url}`;
 };
 
-const Title = ({ children }) => {
-  return <h1>{children}</h1>;
-};
-
 const Form = ({ updateMainCat }) => {
   const includesHangul = (text) => /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/i.test(text);
   const [value, setValue] = React.useState("");
@@ -39,13 +35,14 @@ const Form = ({ updateMainCat }) => {
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    setErrorMessage("");
+
     if (value === "") {
       setErrorMessage("빈 값으로 만들 수 없습니다.");
       return;
     } else if (includesHangul(value)) {
       return;
     }
+    setValue("");
     updateMainCat(value);
   }
 
@@ -155,9 +152,5 @@ const App = () => {
     </div>
   );
 };
-
-const 여기다가그려 = document.querySelector(".app");
-
-ReactDOM.render(<App />, 여기다가그려);
 
 export default App;
