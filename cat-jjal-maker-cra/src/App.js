@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import React from "react";
 import "./App.css";
-import Title from "./components/Title";
+// import Title from "./components/Title";
 
 const jsonLocalStorage = {
   setItem: (key, value) => {
@@ -156,9 +156,5 @@ const App = () => {
     </div>
   );
 };
-
-const 여기다가그려 = document.querySelector(".app");
-
-ReactDOM.render(<App />, 여기다가그려);
 
 export default App;
